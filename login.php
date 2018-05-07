@@ -17,8 +17,10 @@
         $password = $connection->
         real_escape_string($json['passwordPHP']);
 
+        $t = $_SESSION['tmp'];
+
         $date = $connection->query("SELECT id FROM users
-        WHERE email='$email' AND password='$password'");
+        WHERE email='$email' AND password='$t'");
 
         if ($date->num_rows > 0) {
             $_SESSION['loggedIN'] = '1';

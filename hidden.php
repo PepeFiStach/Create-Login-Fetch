@@ -13,6 +13,7 @@
         echo $str;
     }
 
+    // echo $_SESSION['tmp'];
     echo $_SESSION['email'];
 ?>
 <a href="logout.php">Log Out</a>

@@ -10,7 +10,10 @@
         $email = $connection->
         real_escape_string($json['emailPHP']);
         $password = $connection->
-        real_escape_string($json['passwordPHP']);
+        real_escape_string(md5($json['passwordPHP']));
+
+        $tmp = $password;
+        $_SESSION['tmp'] = $tmp;
 
         $date = $connection->query("INSERT INTO users
         VALUES ('', '$email', '$password')");
