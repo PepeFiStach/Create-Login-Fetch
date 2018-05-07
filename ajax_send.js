@@ -19,16 +19,22 @@ export function tryFetch() {
     .then(function (response) {
         if(response.ok)
             return response.text();
-        })
-        .then(function(data) {
-            document.getElementById("response").innerHTML = data;
-            window.location = 'hidden.php';
+        else 
+            throw Error(response.status);
+    })
+    .then(function(data) {
+        document.getElementById("response").innerHTML = data;
+        window.location = 'hidden.php';
+    })
+    .catch(error => {
+        console.log('Request failed', error);
     });
 }
+
 export function tryFetch2() {
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('password').value;
-    const url = 'login.php';
+    let email = document.getElementById('emailIN').value;
+    let password = document.getElementById('passwordIN').value;
+    const url = 'register.php';
     let json_upload = 'json_name=' + JSON.stringify({
         'login': '1',
         'emailPHP': email,
@@ -44,11 +50,13 @@ export function tryFetch2() {
         body: json_upload
     })
     .then(response => {
-        if (response.ok) {
-            window.location = 'hidden.php';
-        } else {
+        if (response.ok)
+            return response.text();
+        else
             throw Error(response.status);
-        }
+    })
+    .then(data => {
+        document.getElementById('responseIN').innerHTML = data;
     })
     .catch(error => {
         console.log('Request failed', error);

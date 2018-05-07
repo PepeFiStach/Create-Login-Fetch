@@ -10,10 +10,17 @@
     <form method="POST" action="login.php" id='inputform'>
         <input type="text" id="email" placeholder="email"></input>
         <input type="password" id="password" placeholder="password"></input>
-        <input type="button" id="submit_btn" value="submit"></input>
+        <input type="button" id="submit_btn" value="login"></input>
     </form>
 
-    <p id="response"></p>
+    <form method="POST" action="register.php" id='inputformIN'>
+        <input type="text" id="emailIN" placeholder="email"></input>
+        <input type="password" id="passwordIN" placeholder="password"></input>
+        <input type="button" id="submit_btnIN" value="register"></input>
+    </form>
+
+    <p id="response">login status</p>
+    <p id="responseIN">register status</p>
     <script type="module" src="main.js"></script>
 </body>
 </html>
